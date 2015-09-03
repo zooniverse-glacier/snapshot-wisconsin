@@ -1,0 +1,221 @@
+.classify-page
+  background: url(./assets/classifier-background.png) no-repeat center center
+  background-size: cover
+  height: 100%
+
+  .loading-indicator-container
+    align-items: center
+    display: flex
+    left: 0
+    justify-content: center
+    height: 100%
+    max-width: 800px
+    min-height: 100px
+    width: 100%
+    z-index: 1
+
+    .loading-indicator-icon
+      color: white
+      position: relative
+
+  .classification
+    align-items: stretch
+    display: flex
+    justify-content: center
+    margin: 0 auto
+    max-width: 1425px
+    padding: 10em 1em
+
+    @media screen and (max-width: 900px)
+      flex-wrap: wrap
+      padding: 10em 0
+      
+    @media screen and (max-width: 400px)
+      padding: 6em 0 10em
+      
+    .classifier-tagline
+      color: #efefef
+      font-size: 1.2em
+      margin: 0 0 10px
+
+    .subject
+      max-width: 920px
+      min-width: 320px
+      padding: 0 1em
+      position: relative
+      width: 100%
+      
+      .subject-toolbar
+        align-items: center
+        background-color: #404040
+        border-bottom-left-radius: 6px
+        border-bottom-right-radius: 6px
+        cursor: pointer
+        display: flex
+        height: 50px
+        justify-content: flex-end
+        position: relative
+        top: -5px //not sure why there's a gap 
+        width: 100%
+        
+        .favorite-button, .tutorial-button, .metadata-button
+          @extends $reset-button
+          color: #f7f7f7
+          
+        .favorite-button, .tutorial-button
+          margin: 0.5em
+          
+        .tutorial-button, .metadata-button
+          background-color: transparent
+          border: solid 2px #f7f7f7
+          border-radius: 50%
+          font-size: 0.75em
+          height: 24px
+          width: 24px
+          
+          &:hover
+            background-color: rgba(33, 33, 33, 0.5)
+          
+        .metadata-button
+          margin: 0.5em 1.75em 0.5em 0.5em
+          
+        .favorite-button:hover
+          color: darken(#f7f7f7, 15%)
+
+      img
+        border-top-left-radius: 6px
+        border-top-right-radius: 6px
+        max-width: 100%
+
+      @media screen and (max-width: 900px)
+        border-radius: 6px
+        height: 100%
+        min-height: 300px
+
+      @media screen and (max-width: 400px)
+        min-height: 33vh
+
+    .task-container
+      max-width: 465px
+      min-width: 320px
+      padding: 0 1em
+      position: relative
+      width: 100%
+
+      @media screen and (max-width: 900px)
+        border-radius: 0 0 6px 6px
+        box-sizing: border-box
+        height: 100%
+        max-width: 800px
+        min-height: 550px
+        
+      .loading-indicator-icon
+        color: white
+
+.workflow-buttons-container
+  display: flex
+  justify-content: flex-end
+  margin-top: 5px
+
+  .action-button
+    @extends $reset-button
+    background: #8a9d56
+    border-radius: 6px
+    color: #efefef
+    font-weight: 700
+    padding: 0.8em 0
+    text-align: center
+    width: 50%
+
+    @media screen and (max-width: 400px)
+      width: 100%
+      
+.task-summary
+  background: rgba(0, 0, 0, 0.7)
+  border-radius: 8px
+  color: #efefef
+  display: flex
+  flex-direction: column
+  font-size: 0.9em
+  justify-content: space-between
+  height: 520px
+  padding: 1em 1em 0
+  text-align: center
+  
+  .task-summary-header
+    font-size: 1.25em
+    font-weight: 400
+  
+  .task-summary-tip
+    color: rgba(239, 239, 239, 0.5)
+    
+    p
+      float: right
+      position: relative
+      width: 200px
+    
+      &::after
+        border: solid
+        border-color: rgba(239, 239, 239, 0.5) transparent
+        border-width: 0.4em 0.4em 0 0.4em
+        bottom: -0.45em
+        content: ""
+        display: block
+        left: 50%
+        position: absolute
+        z-index: 1
+      
+      @media screen and (max-width: 400px)
+        float: none
+        width: 100%
+      
+  .task-summary-annotations
+    overflow: auto
+    
+    .task-summary-annotations-list
+      @extends $reset-unordered-list
+      
+      .task-summary-annotations-list-item
+        align-items: center
+        background-color: #212121
+        border-radius: 4px
+        display: flex
+        height: 35px
+        justify-content: space-between
+        margin-bottom: 1em
+        padding: 0 1em
+        width: 100%
+        
+        .item-species
+          font-weight: 700
+          
+  .task-summary-call-to-action
+    align-items: center
+    display: flex
+    flex-direction: column
+    
+    .discuss-link
+      @extends $reset-link
+      background: transparent
+      border: solid 2px #8a9d56
+      border-radius: 4px
+      color: #efefef
+      font-size: 0.9em
+      font-weight: 700
+      line-height: 45px
+      max-width: 225px
+      text-align: center
+      width: 100%
+
+      &:hover
+        background-color: lighten(#8a9d56, 10%)
+        
+      &:active, &:visited
+        color: #efefef
+    
+.metadata-dialog-container
+  border-radius: 6px
+  padding: 1em
+  
+  .metadata-dialog-label
+    @extends $generic-heading
